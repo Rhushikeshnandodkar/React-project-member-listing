@@ -20,7 +20,10 @@ function Home() {
         <Navbar/>
         {member && 
         member.map((data) =>(
+           <>
             <h2>{data.name}</h2>
+            <h2>{data.company_name}</h2>
+            </>
         ))}
     </div>
   )
