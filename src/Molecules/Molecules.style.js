@@ -29,3 +29,45 @@ export const NavbarStyle = styled.div`
         font-size: 1.1rem;
     }
 `;
+
+export const CardStyle = styled.div`
+    .single-product-card{
+    margin: 3%;
+    text-align: center;
+    width: 400px;
+    /* padding: 2%; */
+    border: 1px solid rgba(128, 128, 128, 0.322);
+}
+.single-product-card h3{
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 4%;
+}
+.single-product-card p{
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 3%;
+    padding: 0 5%;
+}
+.btn{
+    margin-bottom: 6%;
+}
+.single-product-card img{
+    width: 400px;
+    height: 30vh;
+    object-fit: cover;
+}
+.btn{
+    background-color: rgb(0, 110, 255);
+    padding: 1% 4%;
+    margin-top: 1%;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.btn a{
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+`;
