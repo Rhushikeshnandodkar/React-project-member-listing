@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavbarStyle } from './Molecules.style'
-function Navbar() {
+import { Link } from 'react-router-dom'
+function Navbar({user}) {
+  // console.log(user[0].name)
   return (
     <div>
       <NavbarStyle>
@@ -15,6 +17,7 @@ function Navbar() {
                     <li><a href="">Products</a></li>
                     <li><a href="">About</a></li>
                     <li><a href="">Contact</a></li>
+                    <li><a href="">{user ? user[0].name : <button class="btn"><a href=""><Link to="user-login">Login </Link></a></button>}</a></li>
                 </ul>
             </div>
         </div>

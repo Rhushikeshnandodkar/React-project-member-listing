@@ -11,4 +11,14 @@ export const HomepageStyle = styled.div`
     grid-template-columns: auto auto auto;
     text-align: left;
 }
+form{
+  width: 100%;
+  text-align: center;
+  margin: 2% auto;
+}
+.form input{
+padding: 10px 50px;
+width: 80%;
+margin: auto;
+}
 `;

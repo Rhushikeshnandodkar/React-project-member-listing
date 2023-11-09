@@ -10,11 +10,18 @@ export const fetchSingleJobcard = createAsyncThunk('fetchSingleJobcard', async(i
     return response.json()
 })
 
+export const searchJobcards = createAsyncThunk('searchJobcards', async (key) =>{
+    const response = await fetch(`${url}/api/filters?search=${key}`)
+    return response.json()
+})
+
 const jobcardSlice = createSlice({
     name : "jobcard",
     initialState : {
         isLoading : false,
-        data : null,
+        jobcards : null,
+        singleJobcard : null,
+        searchResults : null,
         iserror : false
     },
     extraReducers : (builder) => {
@@ -23,7 +30,7 @@ const jobcardSlice = createSlice({
         });
         builder.addCase(fetchJobcards.fulfilled, (state, action) => {
             state.isLoading = false
-            state.data = action.payload
+            state.jobcards = action.payload
         });
         builder.addCase(fetchJobcards.rejected, (state, action) => {
             state.isLoading = false
@@ -34,9 +41,20 @@ const jobcardSlice = createSlice({
         });
         builder.addCase(fetchSingleJobcard.fulfilled, (state, action) => {
             state.isLoading = false
-            state.data = action.payload
+            state.singleJobcard = action.payload
         });
         builder.addCase(fetchSingleJobcard.rejected, (state, action) => {
+            state.isLoading = false
+            state.iserror = true
+        })
+        builder.addCase(searchJobcards.pending, (state, action) => {
+            state.isLoading = true;
+        });
+        builder.addCase(searchJobcards.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.jobcards = action.payload
+        });
+        builder.addCase(searchJobcards.rejected, (state, action) => {
             state.isLoading = false
             state.iserror = true
         })
